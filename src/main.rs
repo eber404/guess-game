@@ -15,7 +15,7 @@ fn happy_flow(round: u32, secret_number: u32) {
 }
 
 fn main() {
-    println!("### Welcome to GUESS NUMBER THE GAME ### v0.1a");
+    println!("### Welcome to GUESS MY NUMBER THE GAME ### v0.1a");
     let round = 0;
     let secret_number = get_random_number(1, 10);
     happy_flow(round, secret_number);
