@@ -23,20 +23,12 @@ fn compare_numbers(guess: u32, random_number: u32) -> Ordering {
     return guess.cmp(&random_number);
 }
 
-fn say_the_result(res: Ordering) -> bool {
+fn say_the_result(res: Ordering) {
     match res {
-        Ordering::Less => {
-            println!("too small 🤏");
-            return false;
-        }
-        Ordering::Greater => {
-            println!("too big 🍆");
-            return false;
-        }
+        Ordering::Less => println!("too small 🤏"),
+        Ordering::Greater => println!("too big 🍆"),
         Ordering::Equal => println!("you win!!! 🎉"),
     }
-
-    return true;
 }
 
 fn happy_flow() {
@@ -49,15 +41,10 @@ fn happy_flow() {
 
     let comparison = compare_numbers(guess, random_number);
 
-    if comparison == Ordering::Equal {
-        say_the_result(comparison);
+    say_the_result(comparison);
+
+    if comparison != Ordering::Equal {
         return happy_flow();
-    }
-
-    let should_rerun = say_the_result(comparison);
-
-    if should_rerun {
-        happy_flow();
     }
 }
 
